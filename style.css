@@ -240,21 +240,82 @@ img { display: block; max-width: 100%; }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .about-layout, .consult-layout, .contact-layout { grid-template-columns:1fr; }
+  .about-layout, .consult-layout, .contact-layout, .cv-layout { grid-template-columns:1fr; }
   .featured-grid { grid-template-columns:1fr; }
   .service-row { grid-template-columns:50px 1fr 48px; }
   .service-info { display:none; }
-  .cv-layout { grid-template-columns:1fr; }
 }
 @media(max-width:768px){
+  /* Nav mobile */
   .nav { position:fixed; top:0; right:-100%; width:280px; height:100vh; background:var(--dark); flex-direction:column; padding:100px 32px; gap:24px; transition:right .4s; z-index:99; border-left:1px solid var(--border); }
   .nav.active { right:0; }
   .menu-toggle { display:block; z-index:100; }
   .header-cta { display:none; }
-  .hero-badges { flex-wrap:wrap; gap:16px; }
+
+  /* Hero mobile */
+  .hero { min-height:100svh; }
+  .hero-content { padding:100px 20px 60px; }
+  .hero-portrait { width:110px; height:110px; margin-bottom:20px; }
+  .hero-title { font-size:3rem; }
+  .hero-desc { font-size:.9rem; margin-bottom:28px; }
+  .hero-actions { flex-direction:column; gap:10px; align-items:center; }
+  .hero-actions .btn { width:100%; max-width:280px; text-align:center; }
+  .hero-badges { flex-wrap:wrap; gap:8px; justify-content:center; margin-top:8px; }
+  .badge { padding:0 16px; }
+  .badge strong { font-size:1.6rem; }
   .badge-divider { display:none; }
-  .about-photos { grid-template-columns:1fr; }
-  .about-photo-secondary { margin-top:0; }
+  .hero-scroll { bottom:16px; }
+
+  /* Trust bar mobile */
+  .trust-bar { padding:16px 0; }
+  .trust-bar-inner { display:grid; grid-template-columns:1fr 1fr; gap:12px; justify-items:center; }
+  .trust-item { font-size:.7rem; letter-spacing:1.5px; }
+
+  /* About mobile */
+  .about { padding:80px 0; }
+  .about-photos { grid-template-columns:1fr 1fr; gap:8px; }
+  .about-photo-secondary { margin-top:20px; }
+  .about-text .section-heading { font-size:1.8rem; }
+
+  /* Video mobile */
+  .video-section { padding:60px 0; }
+
+  /* Featured mobile */
+  .featured { padding:80px 0; }
+  .featured-grid { gap:16px; }
+  .featured-card { padding:28px 24px; }
+
+  /* Services mobile */
+  .services { padding:80px 0; }
+  .service-row { grid-template-columns:40px 1fr 36px; gap:12px; padding:20px 0; }
+  .service-name { font-size:1rem; }
+
+  /* CV mobile */
+  .cv { padding:80px 0; }
+  .cv-timeline { padding-left:20px; }
+  .cv-item--highlight { margin-left:-20px; padding-left:20px; }
+
+  /* Gallery mobile */
   .gallery-strip-inner { grid-template-columns:1fr; }
-  .gallery-strip-item { aspect-ratio:16/7; }
+  .gallery-strip-item { aspect-ratio:16/9; }
+
+  /* Consultation mobile */
+  .consultation { padding:80px 0; }
+  .consult-photo { width:120px; height:120px; }
+  .consult-form-wrap { padding:28px 20px; }
+  .form-btns { flex-direction:column; }
+  .form-btns .btn { width:100%; text-align:center; }
+
+  /* Contact mobile */
+  .contact { padding:80px 0; }
+  .contact-cta-box { padding:36px 24px; }
+  .contact-cta-box h3 { font-size:1.3rem; }
+
+  /* WhatsApp mobile */
+  .wa-float { bottom:20px; right:16px; width:50px; height:50px; }
+  .wa-float svg { width:24px; height:24px; }
+
+  /* Section spacing */
+  .section-header { margin-bottom:36px; }
+  .section-heading { font-size:1.8rem; }
 }

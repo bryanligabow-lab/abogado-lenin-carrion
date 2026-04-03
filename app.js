@@ -33,16 +33,30 @@ function init() {
 
 // ===== HERO ENTRANCE (GSAP) =====
 function heroEntrance() {
-  const tl = gsap.timeline({ defaults: { ease:'power3.out' } });
-  tl.from('.hero-portrait',        { scale:.8, opacity:0, duration:.8, ease:'back.out(1.4)' }, 0)
-    .from('.hero-label',           { y:20, opacity:0, duration:.6 }, .3)
-    .from('.hero-title span',      { y:80, opacity:0, duration:1, stagger:.12 }, .4)
-    .from('.hero-bar',             { scaleX:0, transformOrigin:'center', duration:.7 }, .7)
-    .from('.hero-desc',            { y:20, opacity:0, duration:.7 }, .8)
-    .from('.hero-actions',         { y:20, opacity:0, duration:.7 }, .95)
-    .from('.hero-badges .badge',   { y:20, opacity:0, duration:.6, stagger:.1 }, 1.1)
-    .from('.hero-scroll',          { opacity:0, duration:.8 }, 1.4)
-    .from('.wa-float',             { scale:0, duration:.5, ease:'back.out(2)' }, 1.3);
+  // Smoother, more cinematic entrance
+  const tl = gsap.timeline({ defaults: { ease:'power2.out' } });
+
+  // Video fades in first
+  tl.from('.hero-video',           { opacity:0, scale:1.15, duration:2, ease:'power1.out' }, 0)
+    .from('.hero-overlay',         { opacity:0, duration:1.5 }, 0)
+    // Portrait drops in with elastic
+    .from('.hero-portrait',        { scale:0, opacity:0, duration:1, ease:'elastic.out(1,0.6)' }, .6)
+    // Label slides up gently
+    .from('.hero-label',           { y:15, opacity:0, duration:.8 }, 1)
+    // Title letters sweep up with stagger
+    .from('.hero-title span',      { y:60, opacity:0, duration:1.2, stagger:.15, ease:'power3.out' }, 1.1)
+    // Gold bar scales from center
+    .from('.hero-bar',             { scaleX:0, transformOrigin:'center', duration:.8, ease:'power2.inOut' }, 1.8)
+    // Description fades up
+    .from('.hero-desc',            { y:15, opacity:0, duration:.8 }, 2)
+    // Buttons stagger in
+    .from('.hero-actions .btn',    { y:15, opacity:0, duration:.6, stagger:.1 }, 2.2)
+    // Badges count up from bottom
+    .from('.hero-badges .badge',   { y:20, opacity:0, duration:.6, stagger:.08 }, 2.5)
+    // Scroll indicator fades in last
+    .from('.hero-scroll',          { opacity:0, duration:1 }, 2.8)
+    // WhatsApp bounces in
+    .from('.wa-float',             { scale:0, duration:.6, ease:'back.out(2.5)' }, 2.6);
 
   // Video section reveal
   gsap.from('.video-wrap', {
